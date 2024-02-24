@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-around;
     height: 13vh;
-    box-shadow: 0 0 9px 3px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 2px 3px rgba(213, 210, 210, 0.7);
     align-items: center;
     font-size: 1.1rem;
     position: sticky;
@@ -20,6 +20,7 @@
 .header_links a{
     text-decoration: none;
     color: #000;
+    padding-left: 380px;
 }
 
 .header_signin a {
@@ -31,8 +32,9 @@
 .header_signin a:hover {
     background: #03ffea;
 }
-.hamburger_menu {
-    display: none;
+
+.logo img{
+padding-right: 470px;
 }
 @media screen and (max-width:768px) {
     .header_links ul {
@@ -41,7 +43,5 @@
     .header_container img {
         width: 40vw;
     }
-    .hamburger_menu {
-        display: block;
-    }
+    
 }
