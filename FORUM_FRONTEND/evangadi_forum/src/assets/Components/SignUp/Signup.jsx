@@ -1,5 +1,5 @@
 import classes from "./Signup.module.css";
-import { FaRegEyeSlash  , FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 function Signup() {
 	return (
 		<section>
@@ -27,7 +27,7 @@ function Signup() {
 
 					{/* evangadi networks */}
 					<div className={classes.networks_container}>
-						<a href="#">About</a>
+		git commit -m"				<a href="#">About</a>
 						<h1>Evangadi Networks Q&A</h1>
 						<p>
 							No matter what stage of life you are in, whether you’re just
