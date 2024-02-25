@@ -41,7 +41,7 @@ try {
     if(ismach){
         const usernam=user[0].username
         const userid=user[0].userid
-        const token= jwt.sign({usernam,userid},"amanuel",{expiresIn:"2d"})
+        const token= jwt.sign({usernam,userid},process.env.jwt_SECRATE,{expiresIn:"2d"})
 
         return res.status(200).json({msg:`Login successfuly ${user[0].username}`,token})
     }

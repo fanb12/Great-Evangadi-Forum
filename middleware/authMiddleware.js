@@ -7,7 +7,7 @@ async function autMiddleware(req,res,next){
     }
     else{
         try {
-            const {usernam,userid}=jwt.verify(tokenHeader,"amanuel")
+            const {usernam,userid}=jwt.verify(tokenHeader,process.env.jwt_SECRATE)
             req.users={usernam,userid}
             next()
         } catch (error) {
