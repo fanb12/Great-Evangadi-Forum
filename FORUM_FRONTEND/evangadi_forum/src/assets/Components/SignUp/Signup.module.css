@@ -1,4 +1,3 @@
-
 .signup_bg {
 	background: url("../../images/bg.svg");
 	background-size: cover;
@@ -96,13 +95,13 @@ span {
 	margin: 0.5rem 3rem;
 	/* margin-left: 6rem; */
 	border: none;
-	background-color: #E8F0FE
+	background-color: #e8f0fe;
 }
-.opace{
-    opacity: 0.6;
+.opace {
+	opacity: 0.6;
 }
-.opace2{
-    opacity: 0.4;
+.opace2 {
+	opacity: 0.4;
 }
 .signup_container h2 {
 	margin-bottom: 0.7rem;
@@ -118,7 +117,7 @@ span {
 	border-radius: 5px;
 	cursor: pointer;
 	margin: 0.5rem 3rem;
-	background: #0B5ED7;
+	background: #0b5ed7;
 	/* padding: 15px 0; */
 	margin-top: 25px;
 }
