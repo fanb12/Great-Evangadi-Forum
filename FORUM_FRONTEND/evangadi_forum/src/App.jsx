@@ -1,14 +1,9 @@
 import "./App.css";
-import Footer from "./Components/Footer/Footer";
-import Header from "./Components/Header/Header";
-import Signup from "./Components/SignUp/Signup";
-
+import Routerr from "./Routerr";
 function App() {
   return (
     <>
-      <Header />
-      <Signup />
-      <Footer />
+      <Routerr />
     </>
   );
 }
