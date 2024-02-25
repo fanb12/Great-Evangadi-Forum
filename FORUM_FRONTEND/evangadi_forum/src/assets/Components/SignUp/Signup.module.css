@@ -1,3 +1,4 @@
+
 .signup_bg {
 	background: url("../../images/bg.svg");
 	background-size: cover;
@@ -47,7 +48,7 @@ color : linear-gradient(to right, red black);} */
 }
 
 .orange {
-	background: orange;
+	background: rgb(251, 116, 12);
 	margin-top: 2rem;
 	border: none;
 	padding: 0.3rem;
@@ -95,7 +96,13 @@ span {
 	margin: 0.5rem 3rem;
 	/* margin-left: 6rem; */
 	border: none;
-	background-color: palegreen;
+	background-color: #E8F0FE
+}
+.opace{
+    opacity: 0.6;
+}
+.opace2{
+    opacity: 0.4;
 }
 .signup_container h2 {
 	margin-bottom: 0.7rem;
@@ -115,9 +122,6 @@ span {
 	/* padding: 15px 0; */
 	margin-top: 25px;
 }
-/* .signup_container button:hover {
-	background: #00eeff;
-} */
 
 @media screen and (max-width: 1300px) {
 	.networks_container h2 {

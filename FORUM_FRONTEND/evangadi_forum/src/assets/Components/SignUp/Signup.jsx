@@ -8,9 +8,10 @@ function Signup() {
 					<div className={classes.signup_container}>
 						{/* login section */}
 						<form action="">
-							<h2>Login into Your account</h2>
+							<h2 className={classes.opace}>Login into Your account</h2>
 							<span>
-								<p>Don't have an account?</p>
+								<p className={classes.opace2}> Don't have an account?</p>
+
 								<a href="#">Create a new account</a>
 							</span>
 							<input type="email" name="email" placeholder="Your email" />
@@ -27,9 +28,9 @@ function Signup() {
 
 					{/* evangadi networks */}
 					<div className={classes.networks_container}>
-		git commit -m"				<a href="#">About</a>
+						<a href="#">About</a>
 						<h1>Evangadi Networks Q&A</h1>
-						<p>
+						<p className={classes.opace}>
 							No matter what stage of life you are in, whether you’re just
 							starting elementary school or being promoted to CEO of a Fortune
 							500 company, you have much to offer to those who are trying to
