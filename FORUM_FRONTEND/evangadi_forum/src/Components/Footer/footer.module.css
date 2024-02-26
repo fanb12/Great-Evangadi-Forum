@@ -1,49 +1,48 @@
 .footer_container {
-    background-color: rgb(59, 69, 90);
-    display: flex;
-    justify-content: space-around;
-    height: 10rem;
-    padding-top: 20px;
-    margin-top: 200px;
+  background-color: rgb(59, 69, 90);
+  display: flex;
+  justify-content: space-around;
+  height: 10rem;
+  padding-top: 20px;
 }
 .footer_container h1 {
-    color: #fff;
-    padding-bottom: 1rem;
+  color: #fff;
+  padding-bottom: 1rem;
 }
 .footer_container ul {
-    list-style: none;
-    color: rgb(14, 45, 45);  
+  list-style: none;
+  color: rgb(14, 45, 45);
 }
 .footer_container ul li {
-    padding-bottom: 0.7rem;
-    padding-left: 0.4rem;
-    color: #d0c9c9;
+  padding-bottom: 0.7rem;
+  padding-left: 0.4rem;
+  color: #d0c9c9;
 }
 .footer_links {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 9px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 9px;
 }
 .footer_links img {
-    width: 28px;
+  width: 28px;
 }
-@media screen and (max-width:768px) {
-    .footer_links img{
-        width: 3vw;
-    }
-    .eva_logo {
-       width: 22vw;
-    }*
-    .footer_container ul li a{
-        font-size: 0.9rem;
-    }
-    .footer_container ul li {
-        font-size: 0.9rem;
-    }
-    .footer_container div h1 {
-        font-size: 1.1rem;
-    }
-    .footer_container {
-        margin-top: 80vh;
-    }
+@media screen and (max-width: 768px) {
+  .footer_links img {
+    width: 3vw;
+  }
+  .eva_logo {
+    width: 22vw;
+  }
+  * .footer_container ul li a {
+    font-size: 0.9rem;
+  }
+  .footer_container ul li {
+    font-size: 0.9rem;
+  }
+  .footer_container div h1 {
+    font-size: 1.1rem;
+  }
+  .footer_container {
+    margin-top: 80vh;
+  }
 }

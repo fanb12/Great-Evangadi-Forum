@@ -5,9 +5,7 @@ import Signup from "../SignUp/Signup";
 function Landing() {
   return (
     <div>
-      <Layout>
-        <Signup />
-      </Layout>
+      <Signup />
     </div>
   );
 }

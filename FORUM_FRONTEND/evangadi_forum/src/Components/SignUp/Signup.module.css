@@ -2,7 +2,7 @@
   background-image: url("../../images/bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 87vh;
+  height: 100vh;
   background-position: start;
 }
 .form_container {
@@ -72,6 +72,7 @@ color : linear-gradient(to right, red black);} */
 .signup_container {
   margin-left: 15px;
   width: 48%;
+  margin-bottom: 200px;
 }
 
 span {

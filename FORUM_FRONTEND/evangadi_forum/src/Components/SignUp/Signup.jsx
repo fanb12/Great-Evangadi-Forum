@@ -28,6 +28,10 @@ function Signup() {
                 {/* <FaRegEyeSlash />
 							<FaRegEye /> */}
                 <button type="submit">Login</button>
+
+                <Link to="/Home">
+                  <button type="submit">Login by Guess</button>
+                </Link>
               </form>
             </div>
 

@@ -2,7 +2,7 @@
   background-image: url("../../images/bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 87vh;
+  height: 100vh;
   background-position: start;
 }
 .form_container {
@@ -89,7 +89,7 @@ span a {
 /* } */
 .signup_container form {
   width: 450px;
-  height: 600px;
+  height: 500px;
   border-radius: 6px;
   box-shadow: 0 0 7px 0.06px #e2e0e0;
   background-color: #fff;
@@ -98,7 +98,7 @@ span a {
   font-size: 1.1rem;
   height: 75vh;
   margin: 5rem 0;
-  padding-bottom: 500px;
+  padding-bottom: 400px;
   margin-left: 20px;
   /* margin-left:5px ; */
 }
@@ -113,7 +113,7 @@ span a {
   border: 1px solid rgb(190, 191, 192);
   padding-left: 15px;
 }
-.signup_container input:focus {
+.signup_container input::-moz-focus-inner {
   border-bottom: 2px solid rgb(251, 116, 12);
 }
 .signup_container .name {
