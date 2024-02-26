@@ -105,7 +105,7 @@ span {
   /* margin-left: 6rem; */
   border: 1px solid rgb(190, 191, 192);
   background-color: rgb(232, 240, 254);
-  padding-left: 15px;
+  margin-left: 4.3vw;
 }
 
 .forgot {
@@ -133,9 +133,19 @@ span {
   margin-top: 25px;
 }
 .signup_container button:hover {
-  background: rgb(11, 94, 215);
+  background: rgb(246, 86, 0);
 }
-
+/* password toggler section */
+.password_container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.password_container i {
+  position: absolute;
+  right: 4vw;
+  cursor: pointer;
+}
 @media screen and (max-width: 1300px) {
   .networks_container h2 {
     font-size: 1.5rem;
@@ -143,17 +153,23 @@ span {
   * .signup_container {
     width: 40vw;
   }
+  .password_container i {
+    right: 4.2vw;
+  }
 }
 @media screen and (max-width: 768px) {
   .signup_container {
     width: 90%;
     padding-bottom: 2rem;
+    padding-left: 2rem;
   }
   .signup_container form {
     width: 80vw;
   }
   .signup_container input {
     width: 65vw;
+    margin-left: 2.5rem;
+
   }
   .signup_container button {
     width: 65vw;
@@ -173,4 +189,8 @@ span {
   .networks_container {
     display: none;
   }
+  .password_container i {
+    right: 8vw;
+  }
 }
+
