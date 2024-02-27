@@ -3,14 +3,13 @@ import classes from "./Signup.module.css";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import Layout from "../Layout/Layout";
 import { useState } from "react";
-
 function Signup() {
-  const [passwordvisible, setPasswordVisible] = useState(false);
-  const [password, setPassword] = useState("");
+  const [passwordvisible,setPasswordVisible] = useState(false)
+  const [password,setPassword] = useState('')
 
   const togglePassword = () => {
-    setPasswordVisible(!passwordvisible);
-  };
+    setPasswordVisible(!passwordvisible)
+  }
   return (
     <section>
       <Layout>
@@ -26,21 +25,22 @@ function Signup() {
                 </span>
                 <input type="email" name="email" placeholder="Your email" />
                 <div className={classes.password_container}>
-                  <input
-                    type={passwordvisible ? "text" : "password"}
-                    name="password"
-                    value={password}
-                    placeholder="Your password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <i onClick={togglePassword}>
-                    {passwordvisible ? <FaRegEyeSlash /> : <FaRegEye />}
-                  </i>
+                <input
+                  type={passwordvisible?'text':'password'}
+                  name="password"
+                  value={password}
+                  placeholder="Your password"
+                  onChange={(e)=>setPassword(e.target.value)}
+                />
+                <i onClick={togglePassword}>{passwordvisible? <FaRegEyeSlash/>:<FaRegEye/>}</i>
                 </div>
                 <Link to="#" className={classes.forgot}>
                   Forgot Password?
                 </Link>
+                {/* <FaRegEyeSlash />
+							<FaRegEye /> */}
                 <button type="submit">Login</button>
+
                 <Link to="/Home">
                   <button type="submit">Login by Guess</button>
                 </Link>
@@ -58,12 +58,14 @@ function Signup() {
                 follow in your footsteps.
               </p>
               <p>
-                Whether you are willing to share your knowledge or you are just
+                wheather you are willing to share your knowledge or you are just
                 looking to meet mentors of your own, please start by joining the
                 network here.
               </p>
               <Link to="/Register">
-                <button className={classes.orange}>CREATE A NEW ACCOUNT</button>
+                <button className={classes.orange}>
+                  CREATE A NEW ACCOUNT{" "}
+                </button>
               </Link>
             </div>
           </div>
@@ -72,5 +74,4 @@ function Signup() {
     </section>
   );
 }
-
 export default Signup;
