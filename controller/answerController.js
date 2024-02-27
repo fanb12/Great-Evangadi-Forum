@@ -32,14 +32,18 @@ async function onequstion(req, res) {
             "SELECT title, discription FROM questions WHERE questionid = ?", 
             [questionId]
         );
-
+         // Fetch the username and answers of the question from the database
+        const [singleQuestionAnswers] = await dbconnection.query(
+            "SELECT u.username, q.answers FROM users u INNER JOIN answers q ON u.userid = q.userid where 	questionid=?", 
+            [questionId]
+        );
         // Check if the question exists
         if (singleQuestion.length === 0) {
             return res.status(404).json({ msg: "Question not found" });
         }
 
         // Return the question details
-        return res.json({ question: singleQuestion[0] });
+        return res.json({ question: singleQuestion[0] ,answer:singleQuestionAnswers[0]});
     } catch (error) {
         return res.status(500).json({ msg: error.message });
     }
