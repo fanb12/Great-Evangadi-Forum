@@ -24,7 +24,9 @@ function Signup() {
                   <p>Don't have an account?</p>
                   <Link to="/Register">Create a new account</Link>
                 </span>
-                <input type="email" name="email" placeholder="Your email" />
+                <div className={classes.email}>
+                  <input type="email" name="email" placeholder="Your email" />
+                </div>
                 <div className={classes.password_container}>
                   <input
                     type={passwordvisible ? "text" : "password"}
@@ -34,7 +36,7 @@ function Signup() {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <i onClick={togglePassword}>
-                    {passwordvisible ? <FaRegEyeSlash /> : <FaRegEye />}
+                    {passwordvisible ? <FaRegEye /> : <FaRegEyeSlash />}
                   </i>
                 </div>
                 <Link to="#" className={classes.forgot}>

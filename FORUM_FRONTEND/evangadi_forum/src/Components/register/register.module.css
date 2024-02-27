@@ -32,16 +32,15 @@
   font-weight: bold;
   font-size: 40px;
   margin-left: 5px;
-  /* color: linear-gradient(to right, rgb(0, 79, 128), red);  */
+  background-image: linear-gradient(to right, rgb(253, 83, 16), rgb(0, 0, 0));
+  background-clip: text;
+  color: transparent;
 }
-/* h2-gradient { */
-/* Other H2 styles (font-size, weight, etc.) */
-/* background-clip: text;
-color : linear-gradient(to right, red black);} */
 .networks_container p {
   line-height: 25px;
   width: 88%;
   margin-right: 15px;
+  opacity: 0.7;
 }
 .networks_container p:not(:last-child) {
   margin-top: 15px;
@@ -113,6 +112,9 @@ span a {
   border: 1px solid rgb(190, 191, 192);
   padding-left: 15px;
 }
+.signup_container .email {
+  width: 36vw;
+}
 .signup_container input::-moz-focus-inner {
   border-bottom: 2px solid rgb(251, 116, 12);
 }
@@ -147,7 +149,16 @@ span a {
 .signup_container button:hover {
   background: rgb(11, 94, 215);
 }
-
+.password_container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.password_container i {
+  position: absolute;
+  right: 5vw;
+  cursor: pointer;
+}
 @media screen and (max-width: 1300px) {
   .networks_container h2 {
     font-size: 1.5rem;

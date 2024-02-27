@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./register.module.css";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Layout from "../Layout/Layout";
 function Register() {
+  const [passwordvisible, setPasswordVisible] = useState(false);
+  const [password, setPassword] = useState("");
+
+  const togglePassword = () => {
+    setPasswordVisible(!passwordvisible);
+  };
   return (
     <section>
       <Layout>
@@ -16,7 +23,12 @@ function Register() {
                   <p>Already have an account?</p>
                   <Link to="/SignUp">Sign in</Link>
                 </span>
-                <input type="email" name="email" placeholder="Your email" />
+                <input
+                  className={classes.email}
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                />
                 <input
                   className={classes.name}
                   type="fname"
@@ -29,11 +41,18 @@ function Register() {
                   name="lname"
                   placeholder="Last Name"
                 />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Your password"
-                />
+                <div className={classes.password_container}>
+                  <input
+                    type={passwordvisible ? "text" : "password"}
+                    name="password"
+                    value={password}
+                    placeholder="Your password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <i onClick={togglePassword}>
+                    {passwordvisible ? <FaRegEye /> : <FaRegEyeSlash />}
+                  </i>
+                </div>
                 {/* <FaRegEyeSlash />
 							<FaRegEye /> */}
                 <span className={classes.privacy}>
