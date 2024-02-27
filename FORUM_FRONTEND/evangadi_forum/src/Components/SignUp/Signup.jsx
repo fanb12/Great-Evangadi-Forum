@@ -4,12 +4,12 @@ import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import Layout from "../Layout/Layout";
 import { useState } from "react";
 function Signup() {
-  const [passwordvisible,setPasswordVisible] = useState(false)
-  const [password,setPassword] = useState('')
+  const [passwordvisible, setPasswordVisible] = useState(false);
+  const [password, setPassword] = useState("");
 
   const togglePassword = () => {
-    setPasswordVisible(!passwordvisible)
-  }
+    setPasswordVisible(!passwordvisible);
+  };
   return (
     <section>
       <Layout>
@@ -23,16 +23,20 @@ function Signup() {
                   <p>Don't have an account?</p>
                   <Link to="/Register">Create a new account</Link>
                 </span>
-                <input type="email" name="email" placeholder="Your email" />
+                <div className={classes.email}>
+                  <input type="email" name="email" placeholder="Your email" />
+                </div>
                 <div className={classes.password_container}>
-                <input
-                  type={passwordvisible?'text':'password'}
-                  name="password"
-                  value={password}
-                  placeholder="Your password"
-                  onChange={(e)=>setPassword(e.target.value)}
-                />
-                <i onClick={togglePassword}>{passwordvisible? <FaRegEyeSlash/>:<FaRegEye/>}</i>
+                  <input
+                    type={passwordvisible ? "text" : "password"}
+                    name="password"
+                    value={password}
+                    placeholder="Your password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <i onClick={togglePassword}>
+                    {passwordvisible ? <FaRegEyeSlash /> : <FaRegEye />}
+                  </i>
                 </div>
                 <Link to="#" className={classes.forgot}>
                   Forgot Password?

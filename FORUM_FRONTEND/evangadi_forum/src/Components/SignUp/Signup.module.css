@@ -107,7 +107,9 @@ span {
   background-color: rgb(232, 240, 254);
   margin-left: 4.3vw;
 }
-
+.email input {
+  width: 37vw;
+}
 .forgot {
   padding-left: 250px;
   font-size: 16px;
@@ -169,7 +171,6 @@ span {
   .signup_container input {
     width: 65vw;
     margin-left: 2.5rem;
-
   }
   .signup_container button {
     width: 65vw;
@@ -193,4 +194,3 @@ span {
     right: 8vw;
   }
 }
-

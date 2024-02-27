@@ -5,6 +5,7 @@ import Register from "./Components/register/Register";
 import Landing from "./Components/Landing/Landing";
 import QuestionList from "./page/Allquestion/QuestionList";
 import Singlequetion from "./page/singleQuestion/Singlequetion";
+import Askquestion from "./page/Askquestion/Askquestion";
 
 function Routerr() {
   return (
@@ -16,6 +17,7 @@ function Routerr() {
           <Route path="/Register" element={<Register />} />
           <Route path="/Home" element={<QuestionList />} />
           <Route path="/Single" element={<Singlequetion />} />
+          <Route path="/askquestion" element={<Askquestion />} />
         </Routes>
       </Router>
     </div>
