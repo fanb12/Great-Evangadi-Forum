@@ -35,13 +35,13 @@ function QuestionList() {
                 placeholder="Search questions..."
               />
               <IoSearchOutline size={25} />
-              {/* {searchResults.length > 0 && (
+              {searchResults.length > 0 && (
                 <ul>
                   {searchResults.map((question) => (
                     <li key={question.id}>{question.title}</li>
-                  ))} */}
-              {/* </ul>
-              )} */}
+                  ))}
+                </ul>
+              )}
             </div>
             <h2>Welecome:</h2>
           </div>
