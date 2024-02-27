@@ -42,7 +42,7 @@ function Answer() {
 					<Link to="/Home">
 						<button>Go to Question page</button>
 					</Link>
-					
+
 					<textarea
 						className={classes.answer__description}
 						type="text"
