@@ -3,13 +3,17 @@ import classes from "./Signup.module.css";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import Layout from "../Layout/Layout";
 import { useState } from "react";
+
 function Signup() {
-  const [passwordvisible,setPasswordVisible] = useState(false)
-  const [password,setPassword] = useState('')
+  // toggling password
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [password, setPassword] = useState('');
 
   const togglePassword = () => {
-    setPasswordVisible(!passwordvisible)
+    setPasswordVisible(!passwordVisible);
   }
+
+
   return (
     <section>
       <Layout>
@@ -23,24 +27,25 @@ function Signup() {
                   <p>Don't have an account?</p>
                   <Link to="/Register">Create a new account</Link>
                 </span>
-                <input type="email" name="email" placeholder="Your email" />
-                <div className={classes.password_container}>
                 <input
-                  type={passwordvisible?'text':'password'}
-                  name="password"
-                  value={password}
-                  placeholder="Your password"
-                  onChange={(e)=>setPassword(e.target.value)}
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
                 />
-                <i onClick={togglePassword}>{passwordvisible? <FaRegEyeSlash/>:<FaRegEye/>}</i>
+                <div className={classes.password_container}>
+                  <input
+                    type={passwordVisible ? 'text' : 'password'}
+                    name="password"
+                    value={password}
+                    placeholder="Your password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <i onClick={togglePassword}>{passwordVisible ? <FaRegEye /> : <FaRegEyeSlash />}</i>
                 </div>
                 <Link to="#" className={classes.forgot}>
                   Forgot Password?
                 </Link>
-                {/* <FaRegEyeSlash />
-							<FaRegEye /> */}
                 <button type="submit">Login</button>
-
                 <Link to="/Home">
                   <button type="submit">Login by Guess</button>
                 </Link>
@@ -58,13 +63,13 @@ function Signup() {
                 follow in your footsteps.
               </p>
               <p>
-                wheather you are willing to share your knowledge or you are just
+                Whether you are willing to share your knowledge or you are just
                 looking to meet mentors of your own, please start by joining the
                 network here.
               </p>
               <Link to="/Register">
                 <button className={classes.orange}>
-                  CREATE A NEW ACCOUNT{" "}
+                  CREATE A NEW ACCOUNT
                 </button>
               </Link>
             </div>
@@ -74,4 +79,5 @@ function Signup() {
     </section>
   );
 }
+
 export default Signup;

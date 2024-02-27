@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./Components/SignUp/Signup";
 import Register from "./Components/register/Register";
@@ -6,7 +5,7 @@ import Landing from "./Components/Landing/Landing";
 import QuestionList from "./page/Allquestion/QuestionList";
 import Singlequetion from "./page/singleQuestion/Singlequetion";
 
-function Routerr() {
+function RouterComp() {
   return (
     <div>
       <Router>
@@ -22,4 +21,4 @@ function Routerr() {
   );
 }
 
-export default Routerr;
+export default RouterComp;

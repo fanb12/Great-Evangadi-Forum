@@ -37,12 +37,11 @@
   font-weight: bold;
   font-size: 40px;
   margin-left: 5px;
-  /* color: linear-gradient(to right, rgb(0, 79, 128), red);  */
+  background-image: linear-gradient(to right, rgb(253, 83, 16),rgb(0, 0, 0));
+  background-clip: text;
+  color: transparent;
 }
-/* h2-gradient { */
-/* Other H2 styles (font-size, weight, etc.) */
-/* background-clip: text;
-color : linear-gradient(to right, red black);} */
+
 .networks_container p {
   line-height: 25px;
   width: 88%;
@@ -53,21 +52,16 @@ color : linear-gradient(to right, red black);} */
 }
 
 .orange {
-  background: orange;
+  background: rgb(255, 119, 0);
   margin-top: 2rem;
   border: none;
-  padding: 0.3rem;
-  font-size: 0.9rem;
+  font-size: 0.94rem;
   color: #fff;
   height: 3rem;
-  width: 17rem;
+  width: 15rem;
   text-align: center;
-  border-radius: 5px;
+  cursor: pointer;
 }
-/* .networks_container button:hover {
-	background: #03eafb;
-	cursor: pointer;
-} */
 /* signup section */
 .signup_container {
   margin-left: 15px;
@@ -109,7 +103,7 @@ span {
 }
 
 .forgot {
-  padding-left: 250px;
+  padding-left: 28vw;
   font-size: 16px;
 }
 
@@ -127,13 +121,13 @@ span {
   border-radius: 5px;
   cursor: pointer;
   margin: 0.5rem 0;
-  background: rgb(53, 126, 235);
+  background: rgb(60, 103, 221);
   margin-left: 8px;
   /* padding: 15px 0; */
   margin-top: 25px;
 }
 .signup_container button:hover {
-  background: rgb(246, 86, 0);
+  background: rgb(11, 94, 215);
 }
 /* password toggler section */
 .password_container {
@@ -194,3 +188,7 @@ span {
   }
 }
 
+.focus {
+  /* border: none; */
+  border-bottom: 2px solid red;
+}
