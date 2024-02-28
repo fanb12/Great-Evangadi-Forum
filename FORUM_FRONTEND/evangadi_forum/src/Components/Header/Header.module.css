@@ -86,13 +86,13 @@
   }
   .hamburger {
     display: block;
-    margin-right: 8px;
+    margin-right: 20px;
   }
   .side_bar {
     display: block;
   }
   .body_color {
-    background-color: #a29f9f;
+    background-color: #e6dede;
     transition: background-color 0.3s ease;
   }
 }

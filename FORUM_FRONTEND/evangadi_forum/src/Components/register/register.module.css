@@ -155,15 +155,37 @@ span a {
   display: flex !important;
   justify-content: space-between;
 }
-@media screen and (max-width: 1300px) {
-  .networks_container h2 {
-    font-size: 1.5rem;
+@media screen and (max-width: 1100px) {
+  .networks_container h1 {
+    font-size: 1.8rem;
+    padding-bottom: 0;
   }
-  * .signup_container {
-    width: 40vw;
+  .networks_container p {
+    margin-top: 0 2.5rem;
   }
+  .networks_container {
+    margin-top: 4rem;
+    width: 45vw;
+    margin-left: 1rem;
+  }
+  .networks_container button {
+    margin-top: 0.5rem;
+  }
+  .signup_container form{
+    width: 46vw;
+  }
+  .password_container i {
+    right: 10vw;
+  }
+  .name_input {
+    margin-right: 0;
+    padding: 0;
+    /* width: 70vw; */
+  }
+
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 991px) {
   .form_container {
     display: block;
   }
@@ -189,7 +211,9 @@ span a {
     display: none;
   }
   .password_container i {
-    margin-right: 1.4rem ;
     padding-top: 5px;
+  }
+  .name_input {
+    width: 70vw;
   }
 }
