@@ -7,7 +7,7 @@
   align-items: center;
   font-size: 1.1rem;
   position: sticky;
-  z-index: 1;
+  z-index: 100;
   top: 0;
   background-color: #fff;
 }
@@ -56,6 +56,24 @@
   color: rgb(255, 102, 0);
   cursor: pointer;
 }
+.side_bar {
+  background-color: #ffffff;
+  height: 100vh;
+  width: 270px;
+  position: fixed;
+  z-index: 10;
+  display: none;
+}
+.side_bar div ul li {
+  border-bottom: 1px solid #bfb7b7;
+  padding: 9px;
+  list-style: none;
+}
+.side_bar div a{
+  text-decoration: none;
+  color: #242222;
+}
+
 @media screen and (max-width: 768px) {
   .header_links ul {
     display: none;
@@ -69,5 +87,12 @@
   .hamburger {
     display: block;
     margin-right: 8px;
+  }
+  .side_bar {
+    display: block;
+  }
+  .body_color {
+    background-color: #a29f9f;
+    transition: background-color 0.3s ease;
   }
 }

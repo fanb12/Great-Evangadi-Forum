@@ -2,8 +2,25 @@ import classes from "./Header.module.css";
 import evangadi_logo from "../../images/evangadi.png";
 import { Link } from "react-router-dom";
 // import { CgProfile } from "react-icons/cg";
+import { useState } from "react";
 function Header() {
+  const [sidebar,setSidebar] = useState(false)
+  const [isSidebarOpen,setSidebarOpened] = useState(false)
+
+  const sidebar_displayer = () => {
+    setSidebar(!sidebar)
+  }
+  const background_toggler = () => {
+    setSidebarOpened(!isSidebarOpen)
+      document.body.classList.toggle(classes.body_color)
+  }
+  const bothHandler = () => {
+    sidebar_displayer(),
+    background_toggler()
+  }
+
   return (
+    <>
     <section className={classes.header_container}>
       <div className={classes.logo}>
         <Link to="/Home">
@@ -20,7 +37,7 @@ function Header() {
           </li> */}
         </ul>
       </div>
-      <div className={classes.hamburger}>
+      <div onClick={bothHandler} className={classes.hamburger}>
           <a href="#" className={classes.hamburger_link}>
             <span></span>
             <span></span>
@@ -28,6 +45,17 @@ function Header() {
           </a>
         </div>
     </section>
+    {sidebar && isSidebarOpen && <section className={`${classes.side_bar}`}>
+      {/*  */}
+          <div>
+            <ul>
+              <li><a href="#">home</a></li>
+              <li><a href="#">privacy</a></li>
+              <li><a href="#">terms</a></li>
+            </ul>
+          </div>
+    </section>}
+    </>
   );
 }
 

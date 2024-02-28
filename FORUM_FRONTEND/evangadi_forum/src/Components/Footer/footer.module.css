@@ -26,6 +26,7 @@
 .footer_links img {
   width: 28px;
 }
+
 @media screen and (max-width: 768px) {
   .footer_links img {
     width: 3vw;

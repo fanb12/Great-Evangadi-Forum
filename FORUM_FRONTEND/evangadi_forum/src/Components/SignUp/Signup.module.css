@@ -10,6 +10,7 @@
   justify-content: space-between;
   padding-top: 1rem;
   height: 460px;
+  
 }
 .form_container a {
   text-decoration: none;
@@ -70,6 +71,7 @@
   margin-left: 15px;
   width: 48%;
   margin-bottom: 200px;
+  position: relative;
 }
 
 span {
@@ -147,6 +149,7 @@ span {
   color: rgb(251, 116, 12);
   margin-right: 0.8rem;
 }
+
 @media screen and (max-width: 1300px) {
   .networks_container h2 {
     font-size: 1.5rem;
