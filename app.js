@@ -1,39 +1,39 @@
-require("dotenv").config()
-const express= require('express')
-const app=express()
-const port=5050
-const dbconnection=require('./db/dbConfig')
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const port = 5500;
+const cors = require("cors");
+app.use(cors());
+const dbconnection = require("./db/dbConfig");
 //user route middelware file
-const userRoute=require('./routes/userRoute')
+const userRoute = require("./routes/userRoute");
 //json middleware
-app.use(express.json())
-
+app.use(express.json());
 
 //user route middelware
-app.use("/api/users",userRoute)
-
+app.use("/api/users", userRoute);
 
 //question route middelware file
-const questionRoute=require('./routes/qustionRoute')
+const questionRoute = require("./routes/qustionRoute");
 //question route middelware
 
-app.use("/api",questionRoute)
+app.use("/api", questionRoute);
 
 //answer route middelware file
-const answerRoute=require('./routes/answerRoute')
+const answerRoute = require("./routes/answerRoute");
 //answer route middelware
 
-app.use("/api",answerRoute)
+app.use("/api", answerRoute);
 
-async function start(){
-    try {
-        const result=await dbconnection.execute("select 'text'")
-        console.log("Database is connected")
-        await app.listen(port)
-        console.log(`Listing port ${port}`)
-        console.log(result)
-    } catch (error) {
-        console.log(error.message)
-    }
+async function start() {
+  try {
+    const result = await dbconnection.execute("select 'text'");
+    console.log("Database is connected");
+    await app.listen(port);
+    console.log(`Listing port ${port}`);
+    console.log(result);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
-start()
+start();

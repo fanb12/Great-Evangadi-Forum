@@ -5,6 +5,7 @@ import Landing from "./Components/Landing/Landing";
 import QuestionList from "./page/Allquestion/QuestionList";
 import Singlequetion from "./page/singleQuestion/Singlequetion";
 import Askquestion from "./page/Askquestion/Askquestion";
+import Answer from "./page/answerEntry/Answer";
 
 function RouterComp() {
   return (
@@ -17,6 +18,7 @@ function RouterComp() {
           <Route path="/Home" element={<QuestionList />} />
           <Route path="/Single" element={<Singlequetion />} />
           <Route path="/askquestion" element={<Askquestion />} />
+          <Route path="/answerpage" element={<Answer />} />
         </Routes>
       </Router>
     </div>

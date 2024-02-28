@@ -156,8 +156,9 @@ span a {
 }
 .password_container i {
   position: absolute;
-  right: 5vw;
+  right: 7vw;
   cursor: pointer;
+  color: rgb(251, 116, 12);
 }
 @media screen and (max-width: 1300px) {
   .networks_container h2 {

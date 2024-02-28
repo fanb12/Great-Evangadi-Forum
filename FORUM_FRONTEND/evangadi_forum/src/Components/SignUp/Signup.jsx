@@ -1,16 +1,44 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./Signup.module.css";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import Layout from "../Layout/Layout";
-import { useState } from "react";
+import React, { useState, useRef } from "react";
+import axios from "../../axiosConfig";
 
 function Signup() {
+  const navigate = useNavigate();
+  const useremail = useRef();
+  const userpassword = useRef();
   const [passwordvisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState("");
 
   const togglePassword = () => {
     setPasswordVisible(!passwordvisible);
   };
+  async function HandleSubmit(e) {
+    e.preventDefault();
+    const emailvalue = useremail.current.value;
+    const passwordvalue = userpassword.current.value;
+    if (!emailvalue) {
+      useremail.current.style.border = "1px solid red";
+      return;
+    } else if (!passwordvalue) {
+      userpassword.current.style.border = "1px solid red";
+      useremail.current.style.border = "1px solid gray";
+      return;
+    }
+    try {
+      await axios.post("/users/login", {
+        email: emailvalue,
+        password: passwordvalue,
+      });
+      alert("login succesfull. please Home");
+      navigate("/Home");
+    } catch (error) {
+      console.log(error?.response?.data);
+      alert("some thing wrong");
+    }
+  }
   return (
     <section>
       <Layout>
@@ -18,17 +46,23 @@ function Signup() {
           <div className={classes.form_container}>
             <div className={classes.signup_container}>
               {/* login section */}
-              <form action="">
+              <form onSubmit={HandleSubmit}>
                 <h2>Login into Your account</h2>
                 <span>
                   <p>Don't have an account?</p>
                   <Link to="/Register">Create a new account</Link>
                 </span>
                 <div className={classes.email}>
-                  <input type="email" name="email" placeholder="Your email" />
+                  <input
+                    ref={useremail}
+                    type="email"
+                    name="email"
+                    placeholder="Your email"
+                  />
                 </div>
                 <div className={classes.password_container}>
                   <input
+                    ref={userpassword}
                     type={passwordvisible ? "text" : "password"}
                     name="password"
                     value={password}
@@ -43,9 +77,6 @@ function Signup() {
                   Forgot Password?
                 </Link>
                 <button type="submit">Login</button>
-                <Link to="/Home">
-                  <button type="submit">Login by Guess</button>
-                </Link>
               </form>
             </div>
 

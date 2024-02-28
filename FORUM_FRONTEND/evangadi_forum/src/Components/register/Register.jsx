@@ -1,15 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import classes from "./register.module.css";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Layout from "../Layout/Layout";
+import axios from "../../axiosConfig";
 function Register() {
+  const navigate = useNavigate();
   const [passwordvisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState("");
-
+  const userNameDom = useRef();
+  const firstName = useRef();
+  const lastName = useRef();
+  const useremail = useRef();
+  const userpassword = useRef();
   const togglePassword = () => {
     setPasswordVisible(!passwordvisible);
   };
+  async function HandleSubmit(e) {
+    e.preventDefault();
+    const usernamevalue = userNameDom.current.value;
+    const firstnamevalue = firstName.current.value;
+    const lastnamevalue = lastName.current.value;
+    const emailvalue = useremail.current.value;
+    const passwordvalue = userpassword.current.value;
+    if (
+      !usernamevalue ||
+      !firstnamevalue ||
+      !lastnamevalue ||
+      !emailvalue ||
+      !passwordvalue
+    ) {
+      alert("please provide all required information");
+      return;
+    }
+    try {
+      await axios.post("/users/register", {
+        username: usernamevalue,
+        firstname: firstnamevalue,
+        lastname: lastnamevalue,
+        email: emailvalue,
+        password: passwordvalue,
+      });
+      alert("register succesfull. please login");
+      navigate("/SignUp");
+    } catch (error) {
+      console.log(error.response);
+      alert("some thing wrong");
+    }
+  }
   return (
     <section>
       <Layout>
@@ -17,7 +55,7 @@ function Register() {
           <div className={classes.form_container}>
             <div className={classes.signup_container}>
               {/* login section */}
-              <form action="">
+              <form onSubmit={HandleSubmit}>
                 <h2>Join the network</h2>
                 <span>
                   <p>Already have an account?</p>
@@ -25,24 +63,35 @@ function Register() {
                 </span>
                 <input
                   className={classes.email}
-                  type="email"
-                  name="email"
-                  placeholder="Your email"
+                  ref={userNameDom}
+                  type="username"
+                  name="Username"
+                  placeholder="User Name"
                 />
                 <input
                   className={classes.name}
                   type="fname"
                   name="fname"
+                  ref={firstName}
                   placeholder="First Name"
                 />
                 <input
                   className={classes.name}
+                  ref={lastName}
                   type="lname"
                   name="lname"
                   placeholder="Last Name"
                 />
+                <input
+                  className={classes.email}
+                  ref={useremail}
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                />
                 <div className={classes.password_container}>
                   <input
+                    ref={userpassword}
                     type={passwordvisible ? "text" : "password"}
                     name="password"
                     value={password}

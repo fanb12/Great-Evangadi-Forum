@@ -14,7 +14,9 @@ function Singlequetion() {
                 <h2>Questions</h2>
               </div>
               <div>
-                <button>Answer</button>
+                <Link to="/answerpage">
+                  <button>Answer</button>
+                </Link>
               </div>
             </div>
             <div className={classes.siglequestion}>
@@ -24,10 +26,6 @@ function Singlequetion() {
             </span>
             <p>{data?.description} </p> */}
               {/* </Link> */}
-              <div className={classes.btn}>
-                <button>Edit</button>
-                <button>Delete</button>
-              </div>
             </div>
             <div className={classes.student}>
               <h2> Answers from the Students</h2>
