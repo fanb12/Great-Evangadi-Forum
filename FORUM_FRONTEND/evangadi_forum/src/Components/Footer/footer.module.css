@@ -2,7 +2,7 @@
   background-color: rgb(59, 69, 90);
   display: flex;
   justify-content: space-around;
-  height: 10rem;
+  height: 11rem;
   padding-top: 20px;
 }
 .footer_container h1 {
@@ -42,7 +42,5 @@
   .footer_container div h1 {
     font-size: 1.1rem;
   }
-  .footer_container {
-    margin-top: 80vh;
-  }
+ 
 }

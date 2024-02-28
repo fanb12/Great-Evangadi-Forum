@@ -13,6 +13,7 @@ function Register() {
   const lastName = useRef();
   const useremail = useRef();
   const userpassword = useRef();
+  // password toggler
   const togglePassword = () => {
     setPasswordVisible(!passwordvisible);
   };
@@ -48,6 +49,8 @@ function Register() {
       alert("some thing wrong");
     }
   }
+
+
   return (
     <section>
       <Layout>
@@ -68,20 +71,22 @@ function Register() {
                   name="Username"
                   placeholder="User Name"
                 />
-                <input
-                  className={classes.name}
-                  type="fname"
-                  name="fname"
-                  ref={firstName}
-                  placeholder="First Name"
-                />
-                <input
-                  className={classes.name}
-                  ref={lastName}
-                  type="lname"
-                  name="lname"
-                  placeholder="Last Name"
-                />
+                <div className={classes.name_input}>
+                  <input
+                    className={classes.name}
+                    type="fname"
+                    name="fname"
+                    ref={firstName}
+                    placeholder="First Name"
+                  />
+                  <input
+                    className={classes.name}
+                    ref={lastName}
+                    type="lname"
+                    name="lname"
+                    placeholder="Last Name"
+                  />
+                </div>
                 <input
                   className={classes.email}
                   ref={useremail}

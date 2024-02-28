@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import classes from "./Signup.module.css";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import Layout from "../Layout/Layout";
-import React, { useState, useRef } from "react";
+import  { useState, useRef } from "react";
 import axios from "../../axiosConfig";
 
 function Signup() {
@@ -20,11 +20,11 @@ function Signup() {
     const emailvalue = useremail.current.value;
     const passwordvalue = userpassword.current.value;
     if (!emailvalue) {
-      useremail.current.style.border = "1px solid red";
+      useremail.current.style.border = "2px solid red";
       return;
     } else if (!passwordvalue) {
       userpassword.current.style.border = "1px solid red";
-      useremail.current.style.border = "1px solid gray";
+      useremail.current.style.border = "2px solid gray";
       return;
     }
     try {
@@ -39,6 +39,18 @@ function Signup() {
       alert("some thing wrong");
     }
   }
+  // border changer on focus
+  async function borderChanger(inputRef) {
+    const data = await inputRef.current.style;
+    data.borderBottom = "2px solid red";
+  }
+  
+  async function removeBorder(inputRef) {
+    const data = await inputRef.current.style;
+    data.borderBottom = "none";
+  }
+  
+
   return (
     <section>
       <Layout>
@@ -55,6 +67,8 @@ function Signup() {
                 <div className={classes.email}>
                   <input
                     ref={useremail}
+                    onFocus={() => borderChanger(useremail)}
+                    onBlur={() => removeBorder(useremail)}
                     type="email"
                     name="email"
                     placeholder="Your email"
@@ -66,6 +80,8 @@ function Signup() {
                     type={passwordvisible ? "text" : "password"}
                     name="password"
                     value={password}
+                    onFocus={() => borderChanger(userpassword)}
+                    onBlur={() => removeBorder(userpassword)}
                     placeholder="Your password"
                     onChange={(e) => setPassword(e.target.value)}
                   />

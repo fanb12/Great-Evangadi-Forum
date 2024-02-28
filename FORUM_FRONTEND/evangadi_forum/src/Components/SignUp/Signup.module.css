@@ -34,8 +34,8 @@
 }
 .networks_container h1 {
   padding: 0.6rem 0;
-  font-weight: bold;
-  font-size: 40px;
+  font-weight: 510;
+  font-size: 46px;
   margin-left: 5px;
   background-image: linear-gradient(to right, rgb(253, 83, 16), rgb(0, 0, 0));
   background-clip: text;
@@ -142,7 +142,7 @@ span {
 }
 .password_container i {
   position: absolute;
-  right: 6vw;
+  right: 3.4vw;
   cursor: pointer;
   color: rgb(251, 116, 12);
   margin-right: 0.8rem;
@@ -188,6 +188,7 @@ span {
 
   .networks_container {
     display: none;
+    position: absolute;
   }
   .password_container i {
     right: 8vw;

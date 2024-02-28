@@ -8,7 +8,7 @@
 .form_container {
   display: flex;
   justify-content: space-between;
-  padding-top: 2rem;
+  padding-top: 1rem;
   height: 460px;
 }
 .form_container a {
@@ -18,27 +18,23 @@
 /* login and signup section */
 /* networks section */
 .networks_container {
-  width: 40vw;
-  padding-top: 2.8rem;
-  /* height: 150px; */
+  width: 50vw;
   margin-top: 100px;
-  /* margin-right: 100px; */
   text-align: justify;
-  margin-left: 15px;
-  width: 48%;
+  margin-right: 3vw;
 }
 .networks_container h1 {
   padding: 0.6rem 0;
-  font-weight: bold;
-  font-size: 40px;
+  font-weight: 550;
+  font-size: 43px;
   margin-left: 5px;
-  background-image: linear-gradient(to right, rgb(253, 83, 16), rgb(0, 0, 0));
+  background-image:  linear-gradient(310deg, #000000, #e33f00);
   background-clip: text;
   color: transparent;
 }
 .networks_container p {
   line-height: 25px;
-  width: 88%;
+  width: 43vw;
   margin-right: 15px;
   opacity: 0.7;
 }
@@ -54,18 +50,15 @@
   font-size: 0.9rem;
   color: #fff;
   height: 3rem;
-  width: 17rem;
+  width: 15rem;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 3px;
 }
-/* .networks_container button:hover {
-	background: #03eafb;
-	cursor: pointer;
-} */
-/* signup section */
+
 .signup_container {
-  margin-left: 15px;
-  width: 48%;
+  margin-left: 5vw;
+  width: 60vw;
+  margin-top: 5vw;
 }
 
 span {
@@ -87,25 +80,26 @@ span a {
 }
 /* } */
 .signup_container form {
-  width: 450px;
+  width: 43vw;
   height: 500px;
   border-radius: 6px;
   box-shadow: 0 0 7px 0.06px #e2e0e0;
   background-color: #fff;
   text-align: center;
-  padding-top: 2rem;
+  padding-top: 1rem;
   font-size: 1.1rem;
   height: 75vh;
-  margin: 5rem 0;
-  padding-bottom: 400px;
-  margin-left: 20px;
-  /* margin-left:5px ; */
+  margin: 4rem 2;
+  padding-right: 0;
+  padding-left: 1rem;
+  padding-bottom: 77.5vh;
+
 }
 
 .signup_container input {
   display: block;
   width: 36vw;
-  border-radius: 5px;
+  border-radius: 2px;
   height: 8vh;
   margin: 0.5rem 2rem;
   /* margin-left: 6rem; */
@@ -119,11 +113,7 @@ span a {
   border-bottom: 2px solid rgb(251, 116, 12);
 }
 .signup_container .name {
-  width: 17vw;
-  display: inline-flex !important;
-  margin: 0 auto;
-  padding: 0 1rem;
-  margin-right: 17px;
+  width: 16vw;
 }
 
 .signup_container h2 {
@@ -137,13 +127,13 @@ span a {
   height: 3rem;
   width: 36vw;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
   margin: 0.5rem 0;
-  background: rgb(53, 126, 235);
-  margin-right: 8px;
+  background: rgb(60, 103, 221);
+  margin-right: 1rem;
   /* padding: 15px 0; */
 }
 .signup_container button:hover {
@@ -156,9 +146,14 @@ span a {
 }
 .password_container i {
   position: absolute;
-  right: 7vw;
+  right: 3.9vw;
   cursor: pointer;
   color: rgb(251, 116, 12);
+}
+.name_input {
+  margin-right: 1rem;
+  display: flex !important;
+  justify-content: space-between;
 }
 @media screen and (max-width: 1300px) {
   .networks_container h2 {
@@ -173,21 +168,28 @@ span a {
     display: block;
   }
   .signup_container .name {
-    width: 31vw;
-    display: inline-flex !important;
-    margin: 0 3px;
-    padding: 0 1rem;
+    width: 25vw;
+    
   }
   .signup_container form {
     width: 80vw;
   }
   .signup_container button {
     width: 65vw;
+    margin-right: 0.6rem;
   }
+
   .signup_container input {
-    width: 65vw;
+    width: 63vw;
+  }
+  .signup_container .email {
+    width: 63vw;
   }
   .networks_container {
     display: none;
+  }
+  .password_container i {
+    margin-right: 1.4rem ;
+    padding-top: 5px;
   }
 }
