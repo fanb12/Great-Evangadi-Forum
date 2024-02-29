@@ -67,3 +67,38 @@
   background-color: #fff;
   box-shadow: #b1adad;
 }
+.icon {
+  display: flex;
+}
+.arrow {
+  color: rgb(2, 2, 66);
+}
+.profile {
+  margin-top: 35px;
+  color: rgb(68, 85, 115);
+}
+.icon h2 {
+  margin-left: 18px;
+  font-size: 40px;
+  color: rgb(68, 85, 115);
+}
+textarea {
+  width: 90%;
+  margin-left: 2.5rem;
+  border: 1px solid rgb(151, 150, 150);
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 30px;
+  margin: 5px 0 20px 50px;
+  background: rgb(53, 126, 235);
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+button:hover {
+  background: rgb(245, 108, 34);
+}
