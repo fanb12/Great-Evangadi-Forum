@@ -14,16 +14,21 @@ function RouterComp() {
   const [user, setUser] = useState({});
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
-
+  // console.log(token);
   async function checkUser() {
     try {
       const response = await axios.get("/users/check", {
-        headers: { Authorization: "Bearer " + token },
+        headers: {
+          Authorization: "Bearer " + token,
+        },
       });
+
+      const user = response.data;
+      //return user;
       //setUser(data);
-      console.log(response);
+      console.log(user);
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       navigate("/SignUp");
     }
   }

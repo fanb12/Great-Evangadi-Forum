@@ -28,18 +28,19 @@ function Signup() {
       return;
     }
     try {
-      const { data } = await axios.post("/users/login", {
+      const response = await axios.post("/users/login", {
         email: emailvalue,
         password: passwordvalue,
       });
+      const user = response.data;
       alert("login succesfull. please Home");
-      console.log(data);
+      console.log(user);
 
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("token", user.token);
 
       navigate("/Home");
     } catch (error) {
-      console.log(data);
+      console.log(error);
       alert("some thing wrong");
     }
   }
