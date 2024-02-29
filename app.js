@@ -17,7 +17,7 @@ app.use("/api/users", userRoute);
 const questionRoute = require("./routes/qustionRoute");
 //question route middelware
 
-app.use("/api", questionRoute);
+app.use("/api/questions", questionRoute);
 
 //answer route middelware file
 const answerRoute = require("./routes/answerRoute");

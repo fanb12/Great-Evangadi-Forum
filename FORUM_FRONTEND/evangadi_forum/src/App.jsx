@@ -1,10 +1,14 @@
+import axios from "./axiosConfig";
 import "./App.css";
 import RouterComp from "./Router";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <RouterComp />
+      <BrowserRouter>
+        <RouterComp />
+      </BrowserRouter>
     </>
   );
 }

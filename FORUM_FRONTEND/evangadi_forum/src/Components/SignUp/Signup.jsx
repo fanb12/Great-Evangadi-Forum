@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import classes from "./Signup.module.css";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import Layout from "../Layout/Layout";
-import  { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import axios from "../../axiosConfig";
 
 function Signup() {
@@ -28,14 +28,18 @@ function Signup() {
       return;
     }
     try {
-      await axios.post("/users/login", {
+      const { data } = await axios.post("/users/login", {
         email: emailvalue,
         password: passwordvalue,
       });
       alert("login succesfull. please Home");
+      console.log(data);
+
+      localStorage.setItem("token", data.token);
+
       navigate("/Home");
     } catch (error) {
-      console.log(error?.response?.data);
+      console.log(data);
       alert("some thing wrong");
     }
   }
@@ -44,12 +48,11 @@ function Signup() {
     const data = await inputRef.current.style;
     data.borderBottom = "2px solid red";
   }
-  
+
   async function removeBorder(inputRef) {
     const data = await inputRef.current.style;
     data.borderBottom = "none";
   }
-  
 
   return (
     <section>

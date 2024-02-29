@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import classes from "./allquestion.module.css";
 import { IoSearchOutline } from "react-icons/io5";
 import Layout from "../../Components/Layout/Layout";
 import { Link } from "react-router-dom";
+import { AppState } from "../../Router";
+
 function QuestionList() {
+  const ab = useContext(AppState);
+  console.log(ab.user.usernam);
   // const [searchTerm, setSearchTerm] = useState("");
   // const [searchResults, setSearchResults] = useState([]);
 

@@ -50,7 +50,6 @@ function Register() {
     }
   }
 
-
   return (
     <section>
       <Layout>

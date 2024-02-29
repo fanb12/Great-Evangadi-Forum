@@ -62,9 +62,11 @@ async function login(req, res) {
         expiresIn: "2d",
       });
 
-      return res
-        .status(200)
-        .json({ msg: `Login successfuly ${user[0].username}`, token });
+      return res.status(200).json({
+        msg: `Login successfuly ${user[0].username}`,
+        token,
+        usernam,
+      });
     }
   } catch (error) {
     return res.status(500).json({ msg: "Something gose rongly" });
@@ -74,7 +76,7 @@ async function login(req, res) {
 async function check(req, res) {
   const username = req.users.usernam;
   const userid = req.users.userid;
-  return res.status(200).json({ msg: `Welcome ${username}`, username, userid });
+  return res.status(200).json({ msg: `Welcome ${username}`, usernam, userid });
 }
 
 module.exports = { register, login, check };
