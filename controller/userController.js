@@ -56,16 +56,16 @@ async function login(req, res) {
     if (!ismach) {
       return res.json({ msg: "Invalide Password" });
     } else {
-      const usernam = user[0].username;
+      const username = user[0].username;
       const userid = user[0].userid;
-      const token = jwt.sign({ usernam, userid }, process.env.jwt_SECRET, {
+      const token = jwt.sign({ username, userid }, process.env.jwt_SECRET, {
         expiresIn: "2d",
       });
 
       return res.status(200).json({
         msg: `Login successfuly ${user[0].username}`,
         token,
-        usernam,
+        username,
       });
     }
   } catch (error) {
@@ -74,9 +74,9 @@ async function login(req, res) {
 }
 
 async function check(req, res) {
-  const username = req.users.usernam;
+  const username = req.users.username;
   const userid = req.users.userid;
-  return res.status(200).json({ msg: `Welcome ${username}`, usernam, userid });
+  return res.status(200).json({ msg: `Welcome ${username}`, username, userid });
 }
 
 module.exports = { register, login, check };

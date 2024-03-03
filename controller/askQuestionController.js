@@ -5,18 +5,14 @@ async function askquestion(req, res) {
     const { title, description } = req.body;
 
     const userid = req.users.userid;
-
-    const [questionid] = await dbconnection.query(
-      "SELECT UUID() as questionid"
-    );
     if (!title || !description) {
       return res
         .status(401)
         .json({ msg: "please inter all requierd information" });
     }
     await dbconnection.query(
-      "INSERT INTO questions (questionid,userid,title,description,tag) VALUES (?,?,?,?,?)",
-      [questionid[0].questionid, userid, title, description]
+      "INSERT INTO questions (questionid,userid,title,description,tag) VALUES (?,?,?,?,?) ",
+      [generateQuestionId(), userid, title, description, "tag"]
     );
     return res.status(200).json({ msg: "Your qustion is added" });
   } catch (error) {
@@ -24,35 +20,26 @@ async function askquestion(req, res) {
     return res.status(500).json({ msg: error.message });
   }
 }
-
+function generateQuestionId() {
+  const timestamp = Date.now();
+  const randomPart = Math.random() * 1000; // Short random string
+  console.log(`${timestamp}-${randomPart}`);
+  return `${timestamp}-${randomPart}`; // Example: "1665954621546-543f15"
+}
 async function allqustions(req, res) {
   try {
-    const { questionid } = await dbconnection.query(
-      "SELECT questionid FROM questions"
-    );
+    const query = `
+      SELECT u.username, q.title,q.questionid AS question 
+      FROM users u 
+      INNER JOIN questions q ON u.userid = q.userid ORDER BY id DESC
+    `;
+    const [results] = await dbconnection.query(query);
 
-    const [username] = await dbconnection.query(
-      "SELECT u.username, q.title FROM users u INNER JOIN questions q ON u.userid = q.userid"
-    );
-    const formattedResult = {};
-
-    // Loop through the results
-    username.forEach(({ username, title }) => {
-      // If the username doesn't exist in the formatted result object, add it with an empty array for titles
-      if (!formattedResult[username]) {
-        formattedResult[username] = { title: [] };
-      }
-
-      // Push the title into the array for the corresponding username
-      formattedResult[username].title.push(title);
-    });
-
-    // Output the formatted result
-    return res.json({ formattedResult });
+    return res.json({ questions: results });
   } catch (error) {
-    console.log(error.message);
     return res.status(500).json({ msg: error.message });
   }
 }
-
+//q.date;
+//ORDER BY q.date DESC;
 module.exports = { askquestion, allqustions };

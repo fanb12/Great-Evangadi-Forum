@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import classes from "./askquestion.module.css";
 import Layout from "../../Components/Layout/Layout";
 import axios from "../../axiosConfig";
@@ -7,27 +7,28 @@ function Askquestion() {
   const navigate = useNavigate();
   const title = useRef();
   const description = useRef();
-
-  async function HandleSubmit(e) {
+  async function submitQuestion(e) {
     e.preventDefault();
     const titlevalue = title.current.value;
     const descriptionvalue = description.current.value;
     if (!titlevalue || !descriptionvalue) {
-      alert("please complete");
+      alert("Question title or Discrtiption can not be empty");
       return;
     }
+    const token = localStorage.getItem("token");
     try {
-      const response = await axios.post("/questions/myquestions", {
+      const askload = {
         title: titlevalue,
         description: descriptionvalue,
+      };
+      await axios.post("/questions/myquestions", askload, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
       });
-      alert("ask question succesfull. please go to question page");
-      navigate("/Home");
-      console.log(response?.data);
-    } catch (error) {
-      console.log(error?.response?.data);
-      alert("some thing wrong");
-    }
+      alert("Question asked");
+      navigate("/Home", { msg: "you have poste new queston" });
+    } catch (error) {}
   }
   return (
     <>
@@ -46,7 +47,7 @@ function Askquestion() {
               <h3>Go to Question page</h3>
             </div>
             <div className={classes.input}>
-              <form onSubmit={HandleSubmit}>
+              <form onSubmit={submitQuestion}>
                 <input ref={title} type="title" placeholder="title" />
                 <textarea
                   name=""

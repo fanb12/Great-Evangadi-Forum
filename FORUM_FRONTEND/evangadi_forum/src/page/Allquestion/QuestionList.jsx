@@ -2,14 +2,14 @@ import { useEffect, useState, useContext } from "react";
 import classes from "./allquestion.module.css";
 import { IoSearchOutline } from "react-icons/io5";
 import Layout from "../../Components/Layout/Layout";
-import { Link } from "react-router-dom";
-import { AppState } from "../../Router";
-import { IoIosArrowDown } from "react-icons/io";
+import { Link, useNavigate } from "react-router-dom";
+import { AppState } from "../../App";
 import { CgProfile } from "react-icons/cg";
-import { IoIosArrowUp } from "react-icons/io";
+import axios from "../../axiosConfig";
 
-function QuestionList() {
-  const ab = useContext(AppState);
+function QuestionList({ questionId }) {
+  const { user } = useContext(AppState);
+  //console.log(ab);
   // const [searchTerm, setSearchTerm] = useState("");
   // const [searchResults, setSearchResults] = useState([]);
 
@@ -20,6 +20,42 @@ function QuestionList() {
   // const handleSearch = (event) => {
   //   setSearchTerm(event.target.value);
   // };
+  const [questions, setQuestions] = useState([]);
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    async function fetchQuestions() {
+      try {
+        const { data } = await axios.get("/questions/questionList", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setQuestions(data.questions);
+        console.log(data.questions);
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+      }
+    }
+
+    fetchQuestions();
+  }, []);
+  const calculateDateDifference = (postDate) => {
+    const currentDate = new Date();
+    const diffInMilliseconds = currentDate - new Date(postDate);
+    const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    const diffInDays = Math.floor(diffInHours / 24);
+    if (diffInDays > 0) {
+      return `${diffInDays}day(s) ago`;
+    } else if (diffInHours > 0) {
+      const remainingMinutes = diffInMinutes % 60;
+      return `${diffInHours}hr and ${remainingMinutes}min ago`;
+    } else {
+      return `${diffInMinutes}min ago`;
+    }
+  };
   const [count, setCount] = useState(0);
 
   function increse() {
@@ -57,34 +93,32 @@ function QuestionList() {
                 </ul>
               )} */}
             </div>
-            <h2>Welecome:</h2>
+            <h2>Welecome:{user.username}</h2>
           </div>
           <div className={classes.question}>
             <h2>Questions</h2>
           </div>
-          <div className={classes.questionlist}>
-            <Link to="/Single">
-              <h2>sigle</h2>
-            </Link>
-            <div className={classes.icon}>
-              <div className={classes.profile}>
-                <CgProfile size={60} />
-              </div>
-              <div className={classes.arrow}>
-                <IoIosArrowUp
-                  size={40}
-                  style={{ marginLeft: "10px" }}
-                  onClick={increse}
-                />
-                <h2>{count} </h2>
-                <IoIosArrowDown
-                  size={40}
-                  style={{ marginLeft: "10px" }}
-                  onClick={decrease}
-                />
-              </div>
-            </div>
-          </div>
+
+          <ul>
+            {questions.length > 0 &&
+              questions?.map((question, index) => (
+                <div key={index} className={classes.questionlist}>
+                  <Link to={`/questions/myanswers/${question.question}`}>
+                    <div className={classes.icon}>
+                      <div className={classes.profile}>
+                        <CgProfile size={60} />
+                        <p>{question.username}</p>
+                      </div>
+
+                      <h3>
+                        <p>title: {question.title}</p>
+                        {/* <p>Date: {calculateDateDifference(question.date)}</p> */}
+                      </h3>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+          </ul>
         </div>
       </Layout>
     </div>

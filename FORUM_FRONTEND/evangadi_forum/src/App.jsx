@@ -9,6 +9,7 @@ import Answer from "./page/answerEntry/Answer";
 import { useEffect, useState, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "./axiosConfig";
+
 export const AppState = createContext();
 
 function App() {
@@ -18,16 +19,15 @@ function App() {
   // console.log(token);
   async function checkUser() {
     try {
-      const response = await axios.get("/users/check", {
+      const { data } = await axios.get("/users/check", {
         headers: {
-          Authorization: "Bearer " + token,
+          Authorization: `Bearer ${token}`,
         },
       });
 
-      const user = response.data;
       //return user;
-      //setUser(data);
-      console.log(user);
+      setUser(data);
+      console.log(data);
     } catch (error) {
       console.log(error.response);
       navigate("/SignUp");
@@ -43,9 +43,12 @@ function App() {
         <Route path="/SignUp" element={<Signup />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Home" element={<QuestionList />} />
-        <Route path="/Single" element={<Singlequetion />} />
         <Route path="/askquestion" element={<Askquestion />} />
         <Route path="/answerpage" element={<Answer />} />
+        <Route
+          path="/questions/myanswers/:questionId"
+          element={<Singlequetion />}
+        />
       </Routes>
     </AppState.Provider>
   );

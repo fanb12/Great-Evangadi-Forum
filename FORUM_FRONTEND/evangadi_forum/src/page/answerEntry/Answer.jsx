@@ -1,8 +1,35 @@
-import React from "react";
+import { useRef, useState } from "react";
 import Layout from "../../Components/Layout/Layout";
 import classes from "./answer.module.css";
 import { Link } from "react-router-dom";
-function Answer() {
+import axios from "../../axiosConfig.js";
+
+function Answer({ questionId }) {
+  const answerText = useRef();
+  async function handleAnswerSubmit(questionId) {
+    const answert = answerText.current.value;
+    const token = localStorage.getItem("token");
+    try {
+      const askload = {
+        answerText: answert,
+      };
+      const response = await axios.post(
+        `/questions/myanswers${questionId}`,
+        askload,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      alert("post answer");
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+      alert("Failed to submit answer. Please try again later.");
+    }
+  }
+
   return (
     <Layout>
       <div>
@@ -36,7 +63,13 @@ function Answer() {
           <button className={classes.deleteQuestion}> DELETE</button>
         </div>
 
-        <form className={classes.answer__form}>
+        <form
+          className={classes.answer__form}
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleAnswerSubmit(questionId);
+          }}
+        >
           <h2>Answer for the above question</h2>
           <Link to="/Home">
             <button>Go to Question page</button>
@@ -47,8 +80,9 @@ function Answer() {
             type="text"
             name="answer"
             placeholder="place your answer here"
+            ref={answerText}
           ></textarea>
-          <button classname={classes.answer_posted}>
+          <button type="submit" className={classes.answer_posted}>
             <div>POST YOUR ANSWER HERE</div>
           </button>
         </form>

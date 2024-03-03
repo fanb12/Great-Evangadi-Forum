@@ -86,3 +86,9 @@
   font-size: 40px;
   color: rgb(68, 85, 115);
 }
+.icon h3 {
+  margin-top: 40px;
+  margin-left: 18px;
+  font-size: 30px;
+  color: black;
+}
