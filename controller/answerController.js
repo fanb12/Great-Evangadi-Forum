@@ -55,11 +55,11 @@ async function allanswers(req, res) {
     // Assuming the question ID is passed as a parameter in the request
     const questionId = req.params.questionId; // Ad
     const [singleQuestionAnswers] = await dbconnection.query(
-      "SELECT u.username, q.answer FROM users u INNER JOIN answers q ON u.userid = q.userid where 	questionid=?",
+      "SELECT u.username, q.answer FROM users u INNER JOIN answers q ON u.userid = q.userid where 	questionid=? ORDER BY answerid DESC ",
       [questionId]
     );
     return res.json({
-      answer: singleQuestionAnswers[0],
+      answer: singleQuestionAnswers,
     });
   } catch (error) {
     return res.status(500).json({ msg: error.message });

@@ -26,7 +26,21 @@
 .footer_links img {
   width: 28px;
 }
-
+.btn button {
+  background-color: #38475a;
+  border: none;
+  color: #dddddd;
+  font-weight: 300;
+  text-align: end;
+  align-items: end;
+  margin-left: 450px;
+}
+.btn button p {
+}
+.btn button:hover {
+  background-color: #485769;
+  cursor: pointer;
+}
 @media screen and (max-width: 768px) {
   .footer_links img {
     width: 3vw;
@@ -43,5 +57,4 @@
   .footer_container div h1 {
     font-size: 1.1rem;
   }
- 
 }

@@ -64,12 +64,17 @@
 .questionlist {
   width: 70vw;
   margin: 0 auto;
-  border-bottom: 1px solid #cec5c5;
-  border-bottom: 2px solid #cec5c5;
+  border-bottom: 2px solid orange;
   width: 65vw;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: #b1adad;
+}
+.questionlist a {
+  text-decoration: none;
+}
+.questionlist:hover {
+  transform: scale(1.1);
 }
 .icon {
   display: flex;
@@ -80,15 +85,21 @@
 .profile {
   margin-top: 35px;
   color: rgb(68, 85, 115);
+  margin-bottom: -10px;
 }
 .icon h2 {
   margin-left: 18px;
   font-size: 40px;
   color: rgb(68, 85, 115);
 }
-.icon h3 {
-  margin-top: 40px;
+.icon h4 {
+  margin-top: 45px;
   margin-left: 18px;
-  font-size: 30px;
+  font-size: 18px;
   color: black;
+}
+.arrows {
+  align-items: center;
+  text-align: end;
+  padding-top: -19px;
 }

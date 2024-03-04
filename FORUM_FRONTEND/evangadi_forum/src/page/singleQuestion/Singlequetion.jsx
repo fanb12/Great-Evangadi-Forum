@@ -6,36 +6,13 @@ import Layout from "../../Components/Layout/Layout";
 import classes from "./singleQuetion.module.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "../../axiosConfig";
+import { SlLike, SlDislike } from "react-icons/sl";
 
 function Singlequetion() {
   // Destructure match object from React Router's props
   //const questionId = match.params.questionId;
   const { questionId } = useParams();
 
-  //const answerText = useRef();
-  // async function handleAnswerSubmit(questionId) {
-  //   const answert = answerText.current.value;
-  //   const token = localStorage.getItem("token");
-  //   try {
-  //     const askload = {-
-  //       answerText: answert,
-  //     };
-  //     const response = await axios.post(
-  //       `/questions/myanswers${questionId}`,
-  //       askload,
-  //       {
-  //         headers: {
-  //           Authorization: "Bearer " + token,
-  //         },
-  //       }
-  //     );
-  //     alert("post answer");
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert("Failed to submit answer. Please try again later.");
-  //   }
-  // }
   const [count, setCount] = useState(0);
   function increse() {
     setCount(count + 1);
@@ -87,6 +64,31 @@ function Singlequetion() {
 
     fetchQuestions();
   }, [questionId]);
+  const answerText = useRef();
+  async function handleAnswerSubmit(questionId) {
+    const answert = answerText.current.value;
+    const token = localStorage.getItem("token");
+    try {
+      const askload = {
+        answerText: answert,
+      };
+      const response = await axios.post(
+        `/questions/myanswers/${questionId}`,
+        askload,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      alert("post answer");
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+      alert("Failed to submit answer. Please try again later.");
+    }
+  }
+
   return (
     // <div>
     //   <h1>HEllo</h1>
@@ -121,7 +123,7 @@ function Singlequetion() {
                 <div className={classes.icon}>
                   <div className={classes.profile}>
                     <CgProfile size={60} />
-                    <p>{question.username}</p>
+                    <h4>{question.username}</h4>
                   </div>
 
                   <div className={classes.arrow}>
@@ -137,13 +139,15 @@ function Singlequetion() {
                       onClick={decrease}
                     />
                   </div>
-                  <p>title: {question.title}</p>
-                  <br />
-                  <br />
-                  <p>description: {question.description}</p>
+                  <div>
+                    <h3>title: {question.title}</h3>
+
+                    <p>description: {question.description}</p>
+                  </div>
 
                   {/* <p>Date: {calculateDateDifference(question.date)}</p> */}
                 </div>
+                <h5>answers {answer.length}</h5>
               </div>
               {/* </li>
                 ))} */}
@@ -151,13 +155,50 @@ function Singlequetion() {
             <div className={classes.student}>
               <h2> Answers from the Students</h2>
             </div>
-            <div className={classes.answerlist}>
-              <p>{answer.answer}</p>
-              <h4>{answer.username}</h4>
+            {answer.length > 0 ? (
+              answer?.map((answer, index) => (
+                <div key={index}>
+                  <div className={classes.answerlist}>
+                    <div className={classes.profile}>
+                      <CgProfile size={60} />
+                      <h4>{answer.username}</h4>
+                    </div>
+                    <div className={classes.answer}>
+                      <p>{answer.answer}</p>
+                    </div>
+                  </div>
+                  <div className={classes.like}>
+                    <h5 style={{ paddingRight: "80px" }}>
+                      <SlLike />
+                    </h5>
+                    <h5>
+                      <SlDislike />
+                    </h5>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className={classes.no}>
+                <p> There are no answers posted for this question.</p>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBDRDTfHCXXs5jivqdf3raoMQLXpWrPKoig1eLA1Z0rH7Yhrxsz4AM9FFNyHnhsbWnKI&usqp=CAU"
+                  alt=""
+                />
+              </div>
+            )}
+            <div className={classes.your}>
+              <h2>Your Answer Post Here</h2>
             </div>
-            <h2>Your Answer</h2>
-            <form>
+
+            <form
+              className={classes.answer__form}
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleAnswerSubmit(questionId);
+              }}
+            >
               <textarea
+                ref={answerText}
                 name=""
                 id=""
                 cols="30"

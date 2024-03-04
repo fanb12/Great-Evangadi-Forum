@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AppState } from "../../App";
 import { CgProfile } from "react-icons/cg";
 import axios from "../../axiosConfig";
+import { RiArrowRightDoubleFill } from "react-icons/ri";
 
 function QuestionList({ questionId }) {
   const { user } = useContext(AppState);
@@ -106,15 +107,18 @@ function QuestionList({ questionId }) {
                   <Link to={`/questions/myanswers/${question.question}`}>
                     <div className={classes.icon}>
                       <div className={classes.profile}>
-                        <CgProfile size={60} />
-                        <p>{question.username}</p>
+                        <CgProfile size={70} />
+
+                        <h3>{question.username}</h3>
                       </div>
 
-                      <h3>
-                        <p>title: {question.title}</p>
-                        {/* <p>Date: {calculateDateDifference(question.date)}</p> */}
-                      </h3>
+                      <h4>title: {question.title}</h4>
+                      {/* <p>Date: {calculateDateDifference(question.date)}</p> */}
+                      {/* <p>answers {answer.length}</p> */}
                     </div>
+                    <h5 className={classes.arows}>
+                      <RiArrowRightDoubleFill size={35} />
+                    </h5>
                   </Link>
                 </div>
               ))}
