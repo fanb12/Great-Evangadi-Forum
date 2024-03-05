@@ -8,5 +8,4 @@ routes.post("/register",register)
 routes.post("/login",login)
 //check route
 routes.get("/check",autentication,check)
-
 module.exports=routes

@@ -38,17 +38,14 @@ try {
     }
     //compare passored
     const ismach=await bcrypt.compare(password,user[0].password)
-    if(ismach){
+    if(!ismach){
+        return res.status(401).json({msg:"Invalide Passord"})
+    }
+  
         const usernam=user[0].username
         const userid=user[0].userid
         const token= jwt.sign({usernam,userid},process.env.jwt_SECRATE,{expiresIn:"2d"})
-
-        return res.status(200).json({msg:`Login successfuly ${user[0].username}`,token})
-    }
-    else{
-        return res.json({msg:"Invalide Passord"})
-    }
-
+        return res.status(200).json({msg:`Login successfuly ${user[0].username}`,token,usernam})
 
 } catch (error) {
     return res.status(500).json({msg:"Something gose rongly"})

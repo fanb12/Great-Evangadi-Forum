@@ -1,0 +1,182 @@
+.signup_bg {
+    /* background-image: url("../../images/bg.svg"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: start;
+  }
+  .form_container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    height: 460px;
+  }
+  .form_container a {
+    text-decoration: none;
+    color: rgb(251, 116, 12);
+  }
+  /* login and signup section */
+  /* networks section */
+  .networks_container {
+    width: 40vw;
+    padding-top: 2.8rem;
+    /* height: 150px; */
+    margin-top: 100px;
+    /* margin-right: 100px; */
+    text-align: justify;
+    margin-left: 15px;
+    width: 48%;
+  }
+  .networks_container h1 {
+    padding: 0.6rem 0;
+    font-weight: bold;
+    font-size: 40px;
+    margin-left: 5px;
+    /* color: linear-gradient(to right, rgb(0, 79, 128), red);  */
+  }
+  /* h2-gradient { */
+  /* Other H2 styles (font-size, weight, etc.) */
+  /* background-clip: text;
+  color : linear-gradient(to right, red black);} */
+  .networks_container p {
+    line-height: 25px;
+    width: 88%;
+    margin-right: 15px;
+  }
+  .networks_container p:not(:last-child) {
+    margin-top: 15px;
+  }
+  
+  .orange {
+    background: rgb(251, 116, 12);
+    margin-top: 2rem;
+    border: none;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    color: #fff;
+    height: 3rem;
+    width: 17rem;
+    text-align: center;
+    border-radius: 5px;
+  }
+  /* .networks_container button:hover {
+      background: #03eafb;
+      cursor: pointer;
+  } */
+  /* signup section */
+  .signup_container {
+    margin-left: 15px;
+    width: 48%;
+  }
+  
+  span {
+    display: inline-flex;
+    margin: 15px auto;
+    font-size: medium;
+    color: rgb(106, 118, 144);
+  }
+  span a {
+    margin-left: 5px;
+  }
+  .privacy {
+    font-size: small;
+    margin: 0;
+    color: rgb(130, 131, 133);
+  }
+  .privacy a {
+    text-decoration: underline;
+  }
+  /* } */
+  .signup_container form {
+    width: 450px;
+    height: 500px;
+    border-radius: 6px;
+    box-shadow: 0 0 7px 0.06px #e2e0e0;
+    background-color: #fff;
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 1.1rem;
+    height: 75vh;
+    margin: 5rem 0;
+    padding-bottom: 400px;
+    margin-left: 20px;
+    /* margin-left:5px ; */
+  }
+  
+  .signup_container input {
+    display: block;
+    width: 36vw;
+    border-radius: 5px;
+    height: 8vh;
+    margin: 0.5rem 2rem;
+    /* margin-left: 6rem; */
+    border: 1px solid rgb(190, 191, 192);
+    padding-left: 15px;
+  }
+  .signup_container input::-moz-focus-inner {
+    border-bottom: 2px solid rgb(251, 116, 12);
+  }
+  .signup_container .name {
+    width: 17vw;
+    display: inline-flex !important;
+    margin: 0 auto;
+    padding: 0 1rem;
+    margin-right: 17px;
+  }
+  
+  .signup_container h2 {
+    font-size: medium;
+    color: rgb(68, 85, 115);
+  }
+  
+  .signup_container button {
+    /* background: linear-gradient(to right, rgb(0, 79, 128), red); */
+    border: none;
+    height: 3rem;
+    width: 36vw;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0.5rem 0;
+    background: rgb(53, 126, 235);
+    margin-right: 8px;
+    /* padding: 15px 0; */
+  }
+  .signup_container button:hover {
+    background: rgb(11, 94, 215);
+  }
+  
+  @media screen and (max-width: 1300px) {
+    .networks_container h2 {
+      font-size: 1.5rem;
+    }
+    * .signup_container {
+      width: 40vw;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .form_container {
+      display: block;
+    }
+    .signup_container .name {
+      width: 31vw;
+      display: inline-flex !important;
+      margin: 0 3px;
+      padding: 0 1rem;
+    }
+    .signup_container form {
+      width: 80vw;
+    }
+    .signup_container button {
+      width: 65vw;
+    }
+    .signup_container input {
+      width: 65vw;
+    }
+    .networks_container {
+      display: none;
+    }
+  }
+  

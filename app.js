@@ -2,6 +2,8 @@ require("dotenv").config()
 const express= require('express')
 const app=express()
 const port=5050
+const cors=require('cors')
+app.use(cors())
 const dbconnection=require('./db/dbConfig')
 //user route middelware file
 const userRoute=require('./routes/userRoute')
@@ -11,7 +13,6 @@ app.use(express.json())
 
 //user route middelware
 app.use("/api/users",userRoute)
-
 
 //question route middelware file
 const questionRoute=require('./routes/qustionRoute')
